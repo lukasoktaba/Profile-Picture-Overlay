@@ -29,8 +29,8 @@ function loginCallback(response) {
         var canvas = document.getElementById("canv");
         var context = canvas.getContext("2d");
         context.drawImage(picElement, 0, 0);
-        var overlay = new HTMLAnchorElement();
-        overlay.src = "../overlay.png"
+        var overlay = new Image();
+        overlay.src = "../overlay.png";
         context.drawImage(overlay, 0, 0);
     } else {
         console.log("Not authorized.");
