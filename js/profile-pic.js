@@ -22,7 +22,16 @@ function loginCallback(response) {
     if (response.authResponse) {
         console.log("Authorized :)");
         console.log(response);
-        document.getElementById("pic").src="http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
+        var picElement = document.getElementById("pic");
+        
+        picElement.src="http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
+        
+        var canvas = document.getElementById("canv");
+        var context = canvas.getContext("2d");
+        context.drawImage(picElement, 0, 0);
+        var overlay = new HTMLAnchorElement();
+        overlay.src = "../overlay.png"
+        context.drawImage(overlay, 0, 0);
     } else {
         console.log("Not authorized.");
     }
