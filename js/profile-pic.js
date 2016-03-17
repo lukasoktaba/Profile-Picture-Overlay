@@ -1,6 +1,6 @@
 window.fbAsyncInit = function() {
     FB.init({
-      appId      : '710108419132027',
+      appId      : '518764661641758',
       xfbml      : true,
       version    : 'v2.5'
     });
@@ -15,18 +15,23 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 
-
 function loginCallback(response) {
     
     console.log("Callback executed.");
     
     if (response.authResponse) {
         console.log("Authorized :)");
+        console.log(response);
+        img.src(FB.api("/" + response.authResponse.user-id + "/profile?type=square"), function(response) {
+            if (response && !response.error) {
+                document.getElementById("pic").src=response.url;
+            }
+        })
     } else {
         console.log("Not authorized.");
     }
 }
 
 function login(){
-    FB.login(loginCallback, {scope: "public_profile,user_photos"});
+    FB.login(loginCallback, {scope: "user_photos"});
 }
