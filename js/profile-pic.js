@@ -22,11 +22,7 @@ function loginCallback(response) {
     if (response.authResponse) {
         console.log("Authorized :)");
         console.log(response);
-        FB.api("/" + response.authResponse.userID + "/profile?type=square", function(response) {
-            if (response && !response.error) {
-                document.getElementById("pic").src=response.url;
-            }
-        });
+        document.getElementById("pic").src="http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square";
     } else {
         console.log("Not authorized.");
     }
