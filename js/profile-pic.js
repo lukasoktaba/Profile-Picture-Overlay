@@ -25,16 +25,17 @@ function loginCallback(response) {
         var picElement = document.getElementById("pic");
         
         picElement.src="http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
+        picElement.onload = function() {
+            var canvas = document.getElementById("canv");
+            var context = canvas.getContext("2d");
+            context.drawImage(picElement, 0, 0);
+            var overlay = new Image();
+            overlay.src = "../overlay.png";
+            overlay.onload = function() {
+                context.drawImage(overlay, 0, 0);
+            }
         
-        var canvas = document.getElementById("canv");
-        var context = canvas.getContext("2d");
-        context.drawImage(picElement, 0, 0);
-        var overlay = new Image();
-        overlay.src = "../overlay.png";
-        overlay.onload = function() {
-            context.drawImage(overlay, 0, 0);
         }
-        
     } else {
         console.log("Not authorized.");
     }
