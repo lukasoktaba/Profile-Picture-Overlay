@@ -24,7 +24,7 @@ function loginCallback(response) {
         console.log(response);
         
         var profilePic = new Image();
-        image.setAttribute('crossOrigin', 'anonymous');
+        profilePic.setAttribute('crossOrigin', 'anonymous');
         profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
         
         profilePic.width = 500;
