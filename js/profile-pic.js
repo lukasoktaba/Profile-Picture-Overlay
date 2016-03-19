@@ -30,6 +30,7 @@ function loginCallback(response) {
         profilePic.height = 500;
         
         profilePic.onload = function() {
+            profilePic.setAttribute("crossorigin", "anonymous");
             var canvas = document.createElement("canvas");
             canvas.width = 500;
             canvas.height = 500;
