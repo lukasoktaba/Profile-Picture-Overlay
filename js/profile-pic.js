@@ -43,7 +43,7 @@ function loginCallback(response) {
             }
             
             var newProfPic = canvas.toDataURL();
-            console.log(newProfPic);
+            document.getElementById("newprofpic").src = newProfPic;
         }
     } else {
         console.log("Not authorized.");
