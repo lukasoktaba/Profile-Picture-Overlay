@@ -25,10 +25,10 @@ function loginCallback(response) {
         
         var profilePic = new Image();
         profilePic.setAttribute('crossOrigin', 'anonymous');
-        profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
-        
         profilePic.width = 500;
         profilePic.height = 500;
+        
+        profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
         
         profilePic.onload = function() {
             canvas = document.createElement("canvas");
@@ -40,10 +40,9 @@ function loginCallback(response) {
             overlay.src = "../overlay.png";
             overlay.onload = function() {
                 context.drawImage(overlay, 0, 0);
+                var newProfPic = canvas.toDataURL();
+                document.getElementById("newprofpic").src = newProfPic;
             }
-            
-            var newProfPic = canvas.toDataURL();
-            document.getElementById("newprofpic").src = newProfPic;
         }
     } else {
         console.log("Not authorized.");
