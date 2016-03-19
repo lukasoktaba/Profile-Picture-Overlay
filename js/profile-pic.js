@@ -32,7 +32,8 @@ function loginCallback(response) {
         profilePic.height = 500;
         
         profilePic.onload = function() {
-            profilePic.setAttribute("crossOrigin", "Anonymous"); document.createElement("canvas");
+            profilePic.setAttribute("crossOrigin", "Anonymous");
+            canvas = document.createElement("canvas");
             canvas.width = 500;
             canvas.height = 500;
             var context = canvas.getContext("2d");
