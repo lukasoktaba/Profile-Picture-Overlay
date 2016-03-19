@@ -25,10 +25,10 @@ function loginCallback(response) {
         
         var profilePic = new Image();
         profilePic.setAttribute('crossOrigin', 'anonymous');
-        profilePic.width = 500;
-        profilePic.height = 500;
+        profilePic.setAttribute('width', '500px');
+        profilePic.setAttribute('height', '500px');
         
-        profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
+        profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square;
         
         profilePic.onload = function() {
             canvas = document.createElement("canvas");
