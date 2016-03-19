@@ -30,7 +30,9 @@ function loginCallback(response) {
         profilePic.height = 500;
         
         profilePic.onload = function() {
-            var canvas = new Canvas(500, 500);
+            var canvas = document.createElement("canvas");
+            canvas.width = 500;
+            canvas.height = 500;
             var context = canvas.getContext("2d");
             context.drawImage(picElement, 0, 0);
             var overlay = new Image();
