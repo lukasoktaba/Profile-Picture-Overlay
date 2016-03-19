@@ -34,7 +34,6 @@ function loginCallback(response) {
             overlay.onload = function() {
                 context.drawImage(overlay, 0, 0);
             }
-        
         }
     } else {
         console.log("Not authorized.");
