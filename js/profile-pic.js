@@ -22,11 +22,15 @@ function loginCallback(response) {
     if (response.authResponse) {
         console.log("Authorized :)");
         console.log(response);
-        var picElement = document.getElementById("pic");
         
-        picElement.src="http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
-        picElement.onload = function() {
-            var canvas = document.getElementById("canv");
+        var profilePic = new Image();
+        profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
+        
+        profilePic.width = 500;
+        profilePic.height = 500;
+        
+        profilePic.onload = function() {
+            var canvas = new Canvas(500, 500);
             var context = canvas.getContext("2d");
             context.drawImage(picElement, 0, 0);
             var overlay = new Image();
@@ -34,6 +38,9 @@ function loginCallback(response) {
             overlay.onload = function() {
                 context.drawImage(overlay, 0, 0);
             }
+            
+            var newProfPic = canvas.toDataURL();
+            console.log(newProfPic);
         }
     } else {
         console.log("Not authorized.");
