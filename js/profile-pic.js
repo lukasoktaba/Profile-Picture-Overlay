@@ -25,8 +25,6 @@ function loginCallback(response) {
         
         var profilePic = new Image();
         profilePic.setAttribute('crossOrigin', 'anonymous');
-        profilePic.setAttribute('width', '500px');
-        profilePic.setAttribute('height', '500px');
         
         profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
         
@@ -35,7 +33,7 @@ function loginCallback(response) {
             canvas.width = 500;
             canvas.height = 500;
             var context = canvas.getContext("2d");
-            context.drawImage(profilePic, 0, 0);
+            context.drawImage(profilePic, 0, 0, profilePic.width, profilePic.height, 0, 0, canvas.width, canvas.height);
             var overlay = new Image();
             overlay.src = "../overlay.png";
             overlay.onload = function() {
