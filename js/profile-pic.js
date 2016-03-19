@@ -24,15 +24,13 @@ function loginCallback(response) {
         console.log(response);
         
         var profilePic = new Image();
+        image.setAttribute('crossOrigin', 'anonymous');
         profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
-        
-        profilePic.crossOrigin = "Anonymous";
         
         profilePic.width = 500;
         profilePic.height = 500;
         
         profilePic.onload = function() {
-            profilePic.setAttribute("crossOrigin", "Anonymous");
             canvas = document.createElement("canvas");
             canvas.width = 500;
             canvas.height = 500;
