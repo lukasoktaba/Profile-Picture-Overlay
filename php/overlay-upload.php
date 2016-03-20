@@ -3,7 +3,7 @@
     // Code from xjamundx: https://gist.github.com/xjamundx/845345
 
     // requires php5
-	define('UPLOAD_DIR', '/images/');
+	define('UPLOAD_DIR', '../images/');
 	$img = $_POST['img'];
 	$img = str_replace('data:image/png;base64,', '', $img);
 	$img = str_replace(' ', '+', $img);
