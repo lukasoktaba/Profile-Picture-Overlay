@@ -37,7 +37,6 @@ function loginCallback(response) {
             overlay.onload = function() {
                 context.drawImage(overlay, 0, 0);
                 var newProfPic = canvas.toDataURL();
-                document.getElementById("newprofpic").src = newProfPic;
                 
                 $.ajax({
                     type: "POST",
