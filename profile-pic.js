@@ -23,12 +23,12 @@ function loginCallback(response) {
         var profilePic = new Image();
         profilePic.setAttribute('crossOrigin', 'anonymous');
         
-        profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=500&height=500";
+        profilePic.src = "http://graph.facebook.com/" + response.authResponse.userID + "/picture?type=square&width=1000&height=1000";
         
         profilePic.onload = function() {
             canvas = document.createElement("canvas");
-            canvas.width = 500;
-            canvas.height = 500;
+            canvas.width = 1000;
+            canvas.height = 1000;
             var context = canvas.getContext("2d");
             context.drawImage(profilePic, 0, 0, profilePic.width, profilePic.height, 0, 0, canvas.width, canvas.height);
             var overlay = new Image();
