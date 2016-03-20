@@ -40,12 +40,27 @@ function loginCallback(response) {
                 
                 $.ajax({
                     type: "POST",
-                    url: "overlay-upload.php",
+                    url: "php/overlay-upload.php",
                     data: {
                         "img": newProfPic
                     },
                     success: function(url) {
                         alert(url);
+                        
+                        var fileNameBegin = url.lastIndexOf('/') + 1;
+                        var fileNameEnd = url.lastIndexOf('.png');
+                        var fileName = url.substring(fileNameBegin, fileNameEnd);
+                        
+                        $.ajax({
+                            type: "POST",
+                            url: "php/overlay-delete.php",
+                            data: {
+                                "img": fileName
+                            },
+                            success: function(response) {
+                                alert(response);
+                            }
+                        });
                     }
                 });
             }
