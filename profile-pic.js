@@ -52,7 +52,7 @@ function loginCallback(response) {
                             "/me/photos",
                             "POST",
                             {
-                                "url": "{" + webUrl + "}"
+                                "url": webUrl
                             },
                             function (photo_response) {
                                 console.log(photo_response);
