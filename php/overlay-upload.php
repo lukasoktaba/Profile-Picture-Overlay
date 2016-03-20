@@ -3,9 +3,8 @@
     // Code from xjamundx: https://gist.github.com/xjamundx/845345
 
     // requires php5
-	define('UPLOAD_DIR', 'images/');
+	define('UPLOAD_DIR', '/var/www/vhost/test.craigowenby.com/images/');
 	$img = $_POST['img'];
-    echo '<img src="data:image/gif;base64,' . $img . '" />';
 	$img = str_replace('data:image/png;base64,', '', $img);
 	$img = str_replace(' ', '+', $img);
 	$data = base64_decode($img);
