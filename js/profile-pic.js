@@ -44,6 +44,7 @@ function loginCallback(response) {
                     {  "source": newProfPic  },
                     function (response) {
                         alert("Woohoo!");
+                        console.log(response);
                         if (response && !response.error) {
                             
                         }
