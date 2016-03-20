@@ -64,16 +64,16 @@ function loginCallback(response) {
                                 var fileName = url.substring(fileNameBegin, fileNameEnd);
                                 console.log(fileName);
 
-                                $.ajax({
-                                    type: 'POST',
-                                    url: 'overlay-delete.php',
-                                    data: {
-                                        "img": fileName
-                                    },
-                                    success: function(response) {
-                                        alert(response);
-                                    }
-                                });
+//                                $.ajax({
+//                                    type: 'POST',
+//                                    url: 'overlay-delete.php',
+//                                    data: {
+//                                        "img": fileName
+//                                    },
+//                                    success: function(response) {
+//                                        alert(response);
+//                                    }
+//                                });
                             }
                         );
                     }
