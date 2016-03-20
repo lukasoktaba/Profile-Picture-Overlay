@@ -85,5 +85,5 @@ function loginCallback(response) {
 }
 
 function login(){
-    FB.login(loginCallback, {scope: "user_photos"});
+    FB.login(loginCallback, {scope: "user_photos,publish_actions"});
 }
