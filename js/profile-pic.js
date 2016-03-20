@@ -41,7 +41,7 @@ function loginCallback(response) {
                 FB.api(
                     "/me/photos",
                     "POST",
-                    {  "source": newProfPic  },
+                    {  "source": "{" + newProfPic + "}"  },
                     function (response) {
                         alert("Woohoo!");
                         console.log(response);
