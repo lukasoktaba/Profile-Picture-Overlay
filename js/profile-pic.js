@@ -38,14 +38,14 @@ function loginCallback(response) {
                 var newProfPic = canvas.toDataURL();
                 document.getElementById("newprofpic").src = newProfPic;
                 
-                $.post("http://test.craigowenby.com/php/overlay-upload.php", newProfPic, function(url){
+                $.post("http://test.craigowenby.com/php/overlay-upload.php?img=", newProfPic, function(url){
                     alert("Uploaded");
                     console.log(url);
                 });
             }
         }
     } else {
-        console.log("Not authorized.");
+        console.log("Not authorized :(");
     }
 }
 
