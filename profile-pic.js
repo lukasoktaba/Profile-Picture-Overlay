@@ -45,23 +45,35 @@ function loginCallback(response) {
                         "img": newProfPic
                     },
                     success: function(url) {
-                        alert(url);
+                        webUrl = "http://test.craigowenby.com/" + url;
                         
-                        var fileNameBegin = url.lastIndexOf('/') + 1;
-                        var fileNameEnd = url.lastIndexOf('.png');
-                        var fileName = url.substring(fileNameBegin, fileNameEnd);
-                        console.log(fileName);
-                        
-                        $.ajax({
-                            type: "POST",
-                            url: "overlay-delete.php",
-                            data: {
-                                "img": fileName
+                        FB.api(
+                            "/me/photos",
+                            "POST",
+                            {
+                                "url": "{" + webUrl + "}"
                             },
-                            success: function(response) {
-                                alert(response);
+                            function (photo_response) {
+                                if (photo_response && !response.error) {
+                                    window.open("https://www.facebook.com/photo.php?fbid={" + photo_response.id) + "}&makeprofile=1";
+                                }
+                                var fileNameBegin = url.lastIndexOf('/') + 1;
+                                var fileNameEnd = url.lastIndexOf('.png');
+                                var fileName = url.substring(fileNameBegin, fileNameEnd);
+                                console.log(fileName);
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: 'overlay-delete.php',
+                                    data: {
+                                        "img": fileName
+                                    },
+                                    success: function(response) {
+                                        alert(response);
+                                    }
+                                });
                             }
-                        });
+                        );
                     }
                 });
             }
