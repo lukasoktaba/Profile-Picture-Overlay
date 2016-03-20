@@ -2,7 +2,7 @@
 
 define('DIR_LOC', 'images/');
 $img = $_POST['img'];
-$img = filter_var($img, FILTER_SANITIZE_NUMBER_FLOAT);
+$img = filter_var($img, FILTER_SANITIZE_STRING);
 print $img;
 $file_path = DIR_LOC . $img . '.png';
 $successful_delete = unlink($file_path);
