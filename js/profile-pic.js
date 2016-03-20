@@ -40,6 +40,17 @@ function loginCallback(response) {
                 context.drawImage(overlay, 0, 0);
                 var newProfPic = canvas.toDataURL();
                 document.getElementById("newprofpic").src = newProfPic;
+                
+                FB.api(
+                    "/me/photos",
+                    "POST",
+                    {  "source": newProfPic  },
+                    function (response) {
+                        if (response && !response.error) {
+                            alert("Woohoo!");
+                        }
+                    }
+                )
             }
         }
     } else {
