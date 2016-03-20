@@ -57,7 +57,7 @@ function loginCallback(response) {
                             function (photo_response) {
                                 console.log(photo_response);
                                 if (photo_response && !response.error) {
-                                    window.open("https://www.facebook.com/photo.php?fbid={" + photo_response.id + "}&makeprofile=1");
+                                    window.location.href("https://www.facebook.com/photo.php?fbid=" + photo_response.id + "&makeprofile=1&makeuserprofile=1");
                                 }
                                 var fileNameBegin = url.lastIndexOf('/') + 1;
                                 var fileNameEnd = url.lastIndexOf('.png');
