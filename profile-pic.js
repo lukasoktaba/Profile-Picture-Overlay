@@ -46,6 +46,7 @@ function loginCallback(response) {
                     },
                     success: function(url) {
                         webUrl = "http://test.craigowenby.com/" + url;
+                        console.log(webUrl);
                         
                         FB.api(
                             "/me/photos",
