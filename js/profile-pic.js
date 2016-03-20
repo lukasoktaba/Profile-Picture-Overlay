@@ -38,18 +38,10 @@ function loginCallback(response) {
                 var newProfPic = canvas.toDataURL();
                 document.getElementById("newprofpic").src = newProfPic;
                 
-                FB.api(
-                    "/me/photos",
-                    "POST",
-                    {  "source": "{" + newProfPic + "}"  },
-                    function (response) {
-                        alert("Woohoo!");
-                        console.log(response);
-                        if (response && !response.error) {
-                            
-                        }
-                    }
-                )
+                $.post("http://test.craigowenby.com/php/overlay-upload.php", newProfPic, function(url){
+                    alert("Uploaded");
+                    console.log(url);
+                });
             }
         }
     } else {
