@@ -16,6 +16,7 @@ window.fbAsyncInit = function() {
 
 
 function loginCallback(response) {
+    document.getElementById("login-button").disabled = 'disabled';
     
     if (response.authResponse) {
         console.log("Authorized :)");
@@ -58,22 +59,21 @@ function loginCallback(response) {
                                 console.log(photo_response);
                                 if (photo_response && !response.error) {
                                     window.location.href = "https://www.facebook.com/photo.php?fbid=" + photo_response.id + "&makeprofile=1&profile_id=" + response.authResponse.userID;
-                                }
-                                var fileNameBegin = url.lastIndexOf('/') + 1;
-                                var fileNameEnd = url.lastIndexOf('.png');
-                                var fileName = url.substring(fileNameBegin, fileNameEnd);
-                                console.log(fileName);
+                                    var fileNameBegin = url.lastIndexOf('/') + 1;
+                                    var fileNameEnd = url.lastIndexOf('.png');
+                                    var fileName = url.substring(fileNameBegin, fileNameEnd);
 
-//                                $.ajax({
-//                                    type: 'POST',
-//                                    url: 'overlay-delete.php',
-//                                    data: {
-//                                        "img": fileName
-//                                    },
-//                                    success: function(response) {
-//                                        alert(response);
-//                                    }
-//                                });
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: 'overlay-delete.php',
+                                        data: {
+                                            "img": fileName
+                                        },
+                                        success: function(response) {
+                                            alert(response);
+                                        }
+                                    });
+                                }
                             }
                         );
                     }
