@@ -52,7 +52,8 @@ function loginCallback(response) {
                             "/me/photos",
                             "POST",
                             {
-                                "url": webUrl
+                                "url": webUrl,
+                                "caption": "I support testing whole-heartedly." 
                             },
                             function (photo_response) {
                                 console.log(photo_response);
