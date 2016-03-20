@@ -40,7 +40,7 @@ function loginCallback(response) {
                 
                 $.ajax({
                     type: "POST",
-                    url: "php/overlay-upload.php",
+                    url: "overlay-upload.php",
                     data: {
                         "img": newProfPic
                     },
