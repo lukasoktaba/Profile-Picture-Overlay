@@ -17,11 +17,8 @@ window.fbAsyncInit = function() {
 
 function loginCallback(response) {
     
-    console.log("Callback executed.");
-    
     if (response.authResponse) {
         console.log("Authorized :)");
-        console.log(response);
         
         var profilePic = new Image();
         profilePic.setAttribute('crossOrigin', 'anonymous');
@@ -46,8 +43,9 @@ function loginCallback(response) {
                     "POST",
                     {  "source": newProfPic  },
                     function (response) {
+                        alert("Woohoo!");
                         if (response && !response.error) {
-                            alert("Woohoo!");
+                            
                         }
                     }
                 )
