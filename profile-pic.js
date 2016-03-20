@@ -55,7 +55,7 @@ function loginCallback(response) {
                             },
                             function (photo_response) {
                                 if (photo_response && !response.error) {
-                                    window.open("https://www.facebook.com/photo.php?fbid={" + photo_response.id) + "}&makeprofile=1";
+                                    window.open("https://www.facebook.com/photo.php?fbid={" + photo_response.id + "}&makeprofile=1");
                                 }
                                 var fileNameBegin = url.lastIndexOf('/') + 1;
                                 var fileNameEnd = url.lastIndexOf('.png');
